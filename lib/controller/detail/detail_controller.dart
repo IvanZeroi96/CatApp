@@ -5,15 +5,16 @@ import 'package:get/get.dart';
 class DetailController extends GetxController {
   bool _isLoading = true;
   CatBreedsImage? _catDetail;
-  String idCat = '';
+  String _idCat = '';
 
   bool get isLoading => _isLoading;
   CatBreedsImage? get catDetail => _catDetail;
+  String get idCat => _idCat;
 
   @override
   void onInit() {
     if (Get.arguments['id'] != null) {
-      idCat = Get.arguments['id']!;
+      _idCat = Get.arguments['id']!;
     }
     _getDetailCat();
     super.onInit();

@@ -35,7 +35,7 @@ class DetailPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Raza:  ${_.catDetail!.breeds.first.name}',
+                        'Raza:  ${_.catDetail?.breeds.first.name ?? ''}',
                         style: Theme.of(Get.context!).textTheme.bodyText1,
                       ),
                       const SizedBox(
@@ -43,7 +43,7 @@ class DetailPage extends StatelessWidget {
                       ),
                       Center(
                         child: Image.network(
-                          '${Common().baseUrlImageCats}${_.catDetail!.breeds.first.referenceImageId}.jpg',
+                          '${Common().baseUrlImageCats}${_.catDetail?.breeds.first.referenceImageId ?? _.idCat}.jpg',
                           height: 180,
                           fit: BoxFit.scaleDown,
                           loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
@@ -71,11 +71,11 @@ class DetailPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Pais Origen: ${_.catDetail!.breeds.first.origin}',
+                            'Pais Origen: ${_.catDetail?.breeds.first.origin ?? ''}',
                             style: Theme.of(Get.context!).textTheme.bodyText1,
                           ),
                           Text(
-                            'Inteligencia: ${_.catDetail!.breeds.first.intelligence}',
+                            'Inteligencia: ${_.catDetail?.breeds.first.intelligence ?? ''}',
                             style: Theme.of(Get.context!).textTheme.bodyText1,
                           ),
                         ],
@@ -84,21 +84,21 @@ class DetailPage extends StatelessWidget {
                         height: 12,
                       ),
                       Text(
-                        'Tiempo de vida: ${_.catDetail!.breeds.first.lifeSpan}',
+                        'Tiempo de vida: ${_.catDetail?.breeds.first.lifeSpan ?? ''}',
                         style: Theme.of(Get.context!).textTheme.bodyText1,
                       ),
                       const SizedBox(
                         height: 12,
                       ),
                       Text(
-                        'Temperamento: ${_.catDetail!.breeds.first.temperament}',
+                        'Temperamento: ${_.catDetail?.breeds.first.temperament ?? ''}',
                         style: Theme.of(Get.context!).textTheme.bodyText1,
                       ),
                       const SizedBox(
                         height: 12,
                       ),
                       Text(
-                        'Pais Origen: ${_.catDetail!.breeds.first.description}',
+                        'Pais Origen: ${_.catDetail?.breeds.first.description ?? ''}',
                         style: Theme.of(Get.context!).textTheme.bodyText1,
                       ),
                     ],
