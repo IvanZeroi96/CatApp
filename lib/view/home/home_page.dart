@@ -42,68 +42,69 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildCards(int index, CatBreeds catbreeds, HomeController _) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Raza:  ${catbreeds.name}',
-              style: Theme.of(Get.context!).textTheme.bodyText1,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Center(
-              child: Image.network(
-                '${Common().baseUrlImageCats}${catbreeds.referenceImageId}.jpg',
-                height: 180,
-                fit: BoxFit.scaleDown,
-                loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return Swing(
-                    infinite: true,
-                    child: Center(
-                      heightFactor: 2,
-                      child: Image.network(
-                        Common().baseUrlLoadingCats,
-                        color: CAColors.red,
-                        width: 70,
-                      ),
-                    ),
-                  );
-                },
+    return InkWell(
+      onTap: () {
+        _.goToDetail(catbreeds.referenceImageId ?? '');
+      },
+      child: Card(
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Raza:  ${catbreeds.name}',
+                style: Theme.of(Get.context!).textTheme.bodyText1,
               ),
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Text(
-                  'Pais Origen: ${catbreeds.origin}',
-                  style: Theme.of(Get.context!).textTheme.bodyText1,
+              const SizedBox(
+                height: 12,
+              ),
+              Center(
+                child: Image.network(
+                  '${Common().baseUrlImageCats}${catbreeds.referenceImageId}.jpg',
+                  height: 180,
+                  fit: BoxFit.scaleDown,
+                  loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Swing(
+                      infinite: true,
+                      child: Center(
+                        heightFactor: 2,
+                        child: Image.network(
+                          Common().baseUrlLoadingCats,
+                          color: CAColors.red,
+                          width: 70,
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                Text(
-                  'Inteligencia: ${catbreeds.intelligence}',
-                  style: Theme.of(Get.context!).textTheme.bodyText1,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Text(
-              'Descripción: ${catbreeds.description}',
-              style: Theme.of(Get.context!).textTheme.bodyText1,
-            ),
-          ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Pais Origen: ${catbreeds.origin}',
+                    style: Theme.of(Get.context!).textTheme.bodyText1,
+                  ),
+                  Text(
+                    'Inteligencia: ${catbreeds.intelligence}',
+                    style: Theme.of(Get.context!).textTheme.bodyText1,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+            ],
+          ),
         ),
       ),
     );

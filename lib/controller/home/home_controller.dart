@@ -30,4 +30,10 @@ class HomeController extends GetxController {
     _isLoading = false;
     update();
   }
+
+  void goToDetail(String idCat) {
+    if (idCat.isNotEmpty) {
+      Get.toNamed('/detail_cat', arguments: {'id': idCat});
+    }
+  }
 }
