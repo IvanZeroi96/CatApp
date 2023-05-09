@@ -1,5 +1,6 @@
 import 'package:catapp/controller/splash/splash_controller.dart';
 import 'package:catapp/model/colors.dart';
+import 'package:catapp/model/common.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +32,7 @@ class SplashPage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.network('https://img.icons8.com/cotton/256/null/cat--v2.png'),
+                    Image.network(Common().baseUrlLogoCat),
                   ],
                 ),
               ),
